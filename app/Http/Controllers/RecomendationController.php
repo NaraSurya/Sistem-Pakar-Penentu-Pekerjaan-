@@ -7,7 +7,7 @@ use App\Topic;
 use App\pekerjaan;
 use App\karakteristik;
 use Session;
-
+use Illuminate\Support\Facades\View;
 
 class RecomendationController extends Controller
 {
@@ -73,6 +73,10 @@ class RecomendationController extends Controller
         $result = $pekerjaan->map(function($pekerjaan_id){
             return pekerjaan::find($pekerjaan_id);
         })->unique();
+
+        if($result->isEmpty()){
+            return view('recomendation.noJobs');
+        }
      
         return view('recomendation.result',['pekerjaans'=>$result]);
 

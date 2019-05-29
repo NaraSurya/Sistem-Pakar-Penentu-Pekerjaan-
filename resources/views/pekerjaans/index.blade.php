@@ -47,7 +47,7 @@
                     <form action="{{route('pekerjaan.delete',['pekerjaan'=>$pekerjaan->id])}}" method="POST">
                         @method('DELETE')
                             @csrf
-                            <input type="submit" class="btn btn-sm btn-primary" value="Hapus">
+                            <input type="submit" class="btn btn-sm btn-danger" value="Hapus">
                     </form>
                     </td>
                 </tr>
